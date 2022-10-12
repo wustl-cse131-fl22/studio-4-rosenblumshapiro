@@ -1,5 +1,6 @@
 package studio4;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -14,11 +15,26 @@ import edu.princeton.cs.introcs.StdDraw;
  */
 public class InterpretDrawingFile {
 
+	
 	public static void main(String[] args) throws FileNotFoundException {
 		JFileChooser chooser = new JFileChooser("resources");
 		chooser.showOpenDialog(null);
 		File f = new File(chooser.getSelectedFile().getPath());
 		Scanner in = new Scanner(f); //making Scanner with a File
-		
+		String Shape = in.next();
+		int red = in.nextInt();
+		int green = in.nextInt();
+		int blue = in.nextInt();
+		boolean inside = in.nextBoolean();
+		double x = in.nextDouble();
+		double y = in.nextDouble();
+		double halfWidth = in.nextDouble();
+		double halfHeight = in.nextDouble();
+		System.out.println("test");
+		if(inside==false && Shape .equals ("rectangle")) {
+		Color custom = new Color(red, green, blue);
+		StdDraw.setPenColor(custom);
+		StdDraw.filledRectangle(x, y, halfWidth,halfHeight);
+		}
 	}
 }
